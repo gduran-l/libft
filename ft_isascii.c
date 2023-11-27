@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 11:40:35 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 11:57:39 by mduran-l         ###   ########.fr       */
+/*   Created: 2023/11/27 11:53:13 by mduran-l          #+#    #+#             */
+/*   Updated: 2023/11/27 11:54:26 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int	ft_isalnum(int c);
-int	ft_isalpha(int c);
-int	ft_isascii(int c);
-int	ft_isdigit(int c);
+int	ft_isascii(int c)
+{
+	if (c >=0  && c <= 127)
+		return (1);
+	return (0);
+}
