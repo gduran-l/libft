@@ -6,10 +6,10 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:07:59 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 14:13:45 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:35:43 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ftlib.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

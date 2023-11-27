@@ -6,10 +6,10 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:16:12 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 14:32:31 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:36:04 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-include "libft.h"
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

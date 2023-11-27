@@ -6,10 +6,10 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:52:40 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 13:55:10 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:36:52 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ftlib.h"
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
