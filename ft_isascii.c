@@ -6,14 +6,14 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:53:13 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 11:54:26 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:57:23 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_isascii(int c)
 {
-	if (c >=0  && c <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
