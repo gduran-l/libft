@@ -6,13 +6,14 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:40:35 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 12:53:40 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:42:23 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
 
 int		ft_atoi(const char *str);
+void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
