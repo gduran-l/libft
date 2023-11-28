@@ -6,12 +6,12 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:50:14 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 14:35:20 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:02:43 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(char *s, size_t n)
 {
 	if (!n)
 		return ;
