@@ -6,12 +6,13 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:10:36 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 12:12:53 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:50:12 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
+
 	return (dst);
 }
