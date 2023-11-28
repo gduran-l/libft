@@ -1,14 +1,15 @@
+#https://medium.com/@Anatolii_Zhadan/makefile-to-create-a-library-in-c-3c2ad3d281
 NAME = libft.a
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-
 SRCS = ft_isalpha.c
-OBJS = ft_isalpha.o
+OBJS = $(SRCS:.c=.o)
 
 .PHONY: all clean fclean re
-all:
-	$(CC) $(CFLAGS) $(SRCS)
+all: $(NAME) clean
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -16,4 +17,4 @@ fclean: clean
 clean:
 	rm -f $(OBJS)
 
-re: fclean all
+re: fclean $(NAME)
