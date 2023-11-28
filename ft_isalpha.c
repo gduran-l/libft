@@ -6,10 +6,24 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:25:31 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 13:52:02 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:06:53 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
+int	ft_isupper(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (1);
+	return (0);
+}
+
+int	ft_islower(int c)
+{
+	if (c >= 97 && c <= 122)
+		return (1);
+	return (0);
+}
 
 /*
 	The isalpha() function tests for any character for which isupper(3) or
@@ -21,7 +35,5 @@
 */
 int	ft_isalpha(int c)
 {
-	if (c < 65 || (c > 90 && c < 97) || c > 122)
-		return (0);
-	return (1);
+	return (ft_isupper(c) + ft_islower(c));
 }
