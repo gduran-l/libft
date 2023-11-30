@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:17:39 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 13:36:09 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:42:04 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,10 +19,10 @@
 	If successful, calloc() function returns a pointer to allocated memory.
 	If there is an error, they return a NULL pointer and set errno to ENOMEM.
 */
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*output;
 
-	output = malloc(count * size);
+	output = (void *)malloc(count * size);
 	return (output);
 }
