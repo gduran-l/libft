@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:36:20 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 13:40:00 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:05:35 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,15 +24,16 @@
 */
 char	*ft_strdup(const char *s1)
 {
+	size_t	l;
 	char	*output;
 
-	output = malloc(sizeof(s1));
-	while (*s1)
+	l = ft_strlen(s1);
+	output = malloc((l + 1) * sizeof(char));
+	while (l)
 	{
-		*output = *s1;
-		s1 ++;
-		output ++;
+		output[l] = s1[l];
+		l --;
 	}
-	*output = *s1;
+	output[l] = '\0';
 	return (output);
 }
