@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:47:19 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 15:24:14 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:01:03 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -40,10 +40,4 @@ char	**ft_split(char const *s, char c)
 	}
 	output[j + 1] = 0;
 	return (output);
-}
-
-int	main(void)
-{
-	ft_split("dabale arroz a la zorra el abad", ' ');
-	return (0);
 }
