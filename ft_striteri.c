@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:49:03 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 14:56:08 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:21:49 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,6 +16,14 @@
 	metros el índice de cada carácter dentro de ’s’ y la dirección del propio
 	carácter, que podrá modificarse si es necesario.
 */
-void	ft_striteri(char *s, void *f)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, s[i]);
+		i ++;
+	}
 }
