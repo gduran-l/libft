@@ -6,12 +6,12 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:50:01 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/30 15:50:12 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:30:53 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }

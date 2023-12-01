@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:17:39 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/30 15:44:08 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:57:08 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,5 +24,6 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*output;
 
 	output = (void *)malloc((count + 1) * size);
+	ft_bzero(output, count);
 	return (output);
 }
