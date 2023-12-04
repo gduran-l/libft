@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:34:17 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/27 15:38:59 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:58:30 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) && str[i] != 45 && str[i] != 32)
+		if (n && !ft_isdigit(str[i]))
 			return (n * is_neg);
 		if (str[i] == 45)
 			is_neg = -1;

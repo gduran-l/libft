@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:09:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/28 13:15:44 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:38:15 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,6 +17,12 @@
 	dstsize is 0 or the original dst string was longer than dstsize (in
 	practice this should not happen as it means that either dstsize is
 	incorrect or that dst is not a proper string).
+
+	strlcat() function returns the total length of the string they tried to cre-
+	ate, that means the initial length of dst plus the length of src.
+	
+	If the return value is >= dstsize, the output string has been truncated.
+	It is the caller's responsibility to handle this.
 */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -25,11 +31,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	l = ft_strlen(dst);
-	while (*src && i < dstsize)
+	while (src[i] || i < dstsize)
 	{
 		dst[l + i] = src[i];
 		i ++;
 	}
-	dst[l + i] = '\0';
+	dst[l + i + 1] = '\0';
 	return (l + i);
 }

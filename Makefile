@@ -22,4 +22,6 @@ fclean: clean
 clean:
 	rm -f $(OBJS)
 
+#bonus: clean
+
 re: fclean $(NAME)
