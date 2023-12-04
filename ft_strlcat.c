@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:09:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 17:38:15 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:55:01 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -31,11 +31,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	l = ft_strlen(dst);
-	while (src[i] || i < dstsize)
+	while (src[i] && i < dstsize)
 	{
+		if (i == dstsize)
+			break ;
 		dst[l + i] = src[i];
 		i ++;
 	}
-	dst[l + i + 1] = '\0';
-	return (l + i);
+	if (dstsize)
+		dst[l + i] = '\0';
+	return (dstsize + i);
 }
