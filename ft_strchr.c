@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:07:59 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/04 10:35:08 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:49:53 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,11 +27,11 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	l = ft_strlen(s);
-	if (c == 0 || l == 0)
+	if ((signed char)c == '\0' || l == 0)
 		return ((char *)&s[l]);
 	while (s[i])
 	{
-		if ((int)s[i] == c)
+		if ((signed char)s[i] == (signed char)c)
 			return ((char *)&s[i]);
 		i ++;
 	}

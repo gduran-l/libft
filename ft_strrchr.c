@@ -6,11 +6,10 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:07:59 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/04 12:34:37 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:48:00 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
 
 /*
 	The strchr() function locates the first occurrence of c (converted to a
@@ -29,25 +28,12 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	l;
 
 	l = ft_strlen(s);
-	if (!c)
+	if ((signed char)c == '\0')
 		return ((char *)&s[l]);
 	while (l --)
 	{
-		if (s[l] == c)
+		if ((signed char)s[l] == (signed char)c)
 			return ((char *)&s[l]);
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-
-	printf("teste, NULL: %s\n", ft_strrchr("teste", '\0'));
-	printf("teste, e: %s\n", ft_strrchr("teste", 'e'));
-	printf("xteste, x: %s\n", ft_strrchr("xteste", 'x'));
-	printf("teste, x: %s\n", ft_strrchr("teste", 'x'));
-	printf("teste, t: %s\n", ft_strrchr("teste", 't'));
-
-	return (0);
-}
-*/
