@@ -6,35 +6,75 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:46:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 15:13:15 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:52:34 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+size_t static	find_first(char const *str, char const *set)
 {
-	int		add;
-	size_t	c;
 	size_t	i;
 	size_t	j;
-	char	*output;
+	int		found;
 
-	output = (char *)malloc(ft_strlen(s1) * sizeof(char));
+	if (ft_strlen(set) == 0)
+		return (0);
 	i = 0;
-	c = 0;
-	while (s1[i])
+	while (i < ft_strlen(str))
 	{
 		j = 0;
-		add = 1;
-		while (set[j])
+		found = -1;
+		while (j < ft_strlen(set))
 		{
-			if (s1[i] == set[j])
-				add = 0;
+			if (str[i] == set[j])
+				found ++;
 			j ++;
 		}
-		if (add)
-			output[c ++] = s1[i];
+		if (found == -1)
+			return (i);
 		i ++;
 	}
-	return (output);
+	return (0);
+}
+
+size_t static	find_last(char const *str, char const *set)
+{
+	size_t	l;
+	size_t	j;
+	int		found;
+
+	l = ft_strlen(str);
+	if (ft_strlen(set) == 0 || !l)
+		return (l);
+	l --;
+	while (l)
+	{
+		j = 0;
+		found = -1;
+		while (j < ft_strlen(set))
+		{
+			if (str[l] == set[j])
+				found ++;
+			j ++;
+		}
+		if (found == -1)
+			return (l + 1);
+		l --;
+	}
+	return (0);
+}
+
+/*
+	Elimina todos los caracteres de la string ’set’ desde el principio y desde
+	el final de ’s1’, hasta encontrar un caracter no perteneciente a ’set’.
+	La string resultante se devuelve con una reserva de malloc(3)
+*/
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	start;
+	size_t	end;
+
+	start = find_first(s1, set);
+	end = find_last(s1, set);
+	return (ft_substr(s1, start, end - start));
 }

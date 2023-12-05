@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:45:07 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/05 11:43:38 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:38:30 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,6 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (len > l)
 		len = l;
 	output = (char *)malloc((len + 1) * sizeof(char));
+	if (!output)
+		return (0);
 	ft_bzero(output, len + 1);
 	if (start > l)
 		return (output);
