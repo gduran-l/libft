@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:45:07 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 14:52:21 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:43:38 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,16 +18,22 @@
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	char			*output;
+	size_t	i;
+	size_t	l;
+	char	*output;
 
 	i = 0;
-	output = (char *)malloc(len + 1 * sizeof(char));
-	while ((size_t)i < len)
+	l = ft_strlen(s);
+	if (len > l)
+		len = l;
+	output = (char *)malloc((len + 1) * sizeof(char));
+	ft_bzero(output, len + 1);
+	if (start > l)
+		return (output);
+	while (s[start + (unsigned int)i] && i < len)
 	{
-		output[i] = s[start + i];
+		output[i] = s[start + (unsigned int)i];
 		i ++;
 	}
-	output[i] = '\0';
 	return (output);
 }
