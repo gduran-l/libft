@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:06 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/11/30 15:17:45 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:31:58 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,17 +20,15 @@
 */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	void			*out;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	out = dst;
-	while (n)
+	if (!src && !dst)
+		return (0);
+	i = 0;
+	while (i < n)
 	{
-		*d ++ = *s ++;
-		n --;
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i ++;
 	}
-	return (out);
+	return (dst);
 }
