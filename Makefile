@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/05 12:36:32 by mduran-l          #+#    #+#              #
+#    Updated: 2023/12/05 12:36:40 by mduran-l         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #https://medium.com/@Anatolii_Zhadan/makefile-to-create-a-library-in-c-3c2ad3d281
 NAME = libft.a
 INC = libft.h
