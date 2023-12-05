@@ -1,5 +1,6 @@
 #https://medium.com/@Anatolii_Zhadan/makefile-to-create-a-library-in-c-3c2ad3d281
 NAME = libft.a
+INC = libft.h
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c ft_isalpha.c ft_memchr.c ft_memset.c ft_strlcpy.c ft_strrchr.c \
@@ -8,20 +9,27 @@ SRCS = ft_atoi.c ft_isalpha.c ft_memchr.c ft_memset.c ft_strlcpy.c ft_strrchr.c 
 	ft_isalnum.c ft_isprint.c ft_memmove.c ft_strlcat.c ft_strnstr.c ft_substr.c \
 	ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+SRCS_BONUS =
 OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+.PHONY: all clean fclean re bonus
+all: $(NAME)
 
-.PHONY: all clean fclean re
-all: $(NAME) clean
+# Avoid relink
+# https://stackoverflow.com/questions/42718392/how-to-avoid-my-makefile-to-relink
+%.o:%.c
+	@$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@$(AR) rcs $@ $^
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) -f $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	@$(RM) -f $(OBJS)
 
-#bonus: clean
+#bonus: $(OBJS_BONUS)
+#	ar rcs $() $(OBJS_BONUS)
 
-re: fclean $(NAME)
+re: fclean all
