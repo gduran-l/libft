@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:46:01 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 15:07:10 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:00:40 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,7 +21,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	char	*output;
 
-	output = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
+	output = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!output)
+		return (0);
 	l = 0;
 	while (l < ft_strlen(s1))
 	{
