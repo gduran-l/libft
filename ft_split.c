@@ -6,22 +6,25 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:47:19 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/11 15:44:40 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:49:07 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static size_t	count_c(const char *s, char c)
 {
+	char	last;
 	size_t	count;
 	size_t	i;
 
 	count = 0;
 	i = 0;
+	last = c;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && last == c)
 			count ++;
+		last = s[i];
 		i ++;
 	}
 	return (count);
@@ -29,10 +32,14 @@ static size_t	count_c(const char *s, char c)
 
 static size_t	locate_next(const char *str, size_t start, char c)
 {
+	char	last;
+
+	last = c;
 	while (str[start])
 	{
-		if (str[start] == c)
+		if (str[start] == c && last != c)
 			return (start);
+		last = str[start];
 		start ++;
 	}
 	return (start);

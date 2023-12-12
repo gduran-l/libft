@@ -6,13 +6,12 @@
 #    By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 12:36:32 by mduran-l          #+#    #+#              #
-#    Updated: 2023/12/05 12:36:40 by mduran-l         ###   ########.fr        #
+#    Updated: 2023/12/12 09:44:15 by mduran-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #https://medium.com/@Anatolii_Zhadan/makefile-to-create-a-library-in-c-3c2ad3d281
 NAME = libft.a
-INC = libft.h
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c ft_isalpha.c ft_memchr.c ft_memset.c ft_strlcpy.c ft_strrchr.c \
@@ -21,18 +20,24 @@ SRCS = ft_atoi.c ft_isalpha.c ft_memchr.c ft_memset.c ft_strlcpy.c ft_strrchr.c 
 	ft_isalnum.c ft_isprint.c ft_memmove.c ft_strlcat.c ft_strnstr.c ft_substr.c \
 	ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-SRCS_BONUS =
+SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
 .PHONY: all clean fclean re bonus
 all: $(NAME)
 
 # Avoid relink
 # https://stackoverflow.com/questions/42718392/how-to-avoid-my-makefile-to-relink
 %.o:%.c
-	@$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
+	@$(AR) rcs $@ $^
+
+bonus: $(OBJS_BONUS)
 	@$(AR) rcs $@ $^
 
 fclean: clean
