@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:10:36 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/11 14:35:27 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:11:55 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -35,6 +35,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*d;
 	unsigned char	*s;
 
+	if (!src && !dst)
+		return (0);
 	out = dst;
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
