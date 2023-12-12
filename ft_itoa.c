@@ -6,12 +6,12 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:47:56 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/12 10:36:17 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:21:51 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t static	nbrlen(int n)
+static size_t	nbrlen(int n)
 {
 	size_t	len;
 
