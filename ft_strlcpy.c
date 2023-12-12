@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:55:47 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/01 17:31:40 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:37:43 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -38,10 +38,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = src[i];
 		i ++;
 	}
-	if (dstsize)
-	{
+	if (l > dstsize)
 		dst[dstsize - 1] = 0;
-		dst[l] = 0;
-	}
+	else
+		dst[i] = 0;
 	return (l);
 }
