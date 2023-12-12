@@ -6,12 +6,12 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:46:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/05 14:52:34 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:21:03 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t static	find_first(char const *str, char const *set)
+static size_t	find_first(char const *str, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -37,7 +37,7 @@ size_t static	find_first(char const *str, char const *set)
 	return (0);
 }
 
-size_t static	find_last(char const *str, char const *set)
+static size_t	find_last(char const *str, char const *set)
 {
 	size_t	l;
 	size_t	j;
