@@ -6,43 +6,46 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:47:19 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/11 15:49:07 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:14:36 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static size_t	count_c(const char *s, char c)
+static size_t	ft_end(const char *str, size_t start, char c)
 {
-	char	last;
+	while (str[start])
+	{
+		if (str[start] == c)
+			return (start);
+		start ++;
+	}
+	return (start);
+}
+
+static size_t	ft_start(const char *str, size_t start, char c)
+{
+	while (str[start])
+	{
+		if (str[start] != c)
+			return (start);
+		start ++;
+	}
+	return (start);
+}
+
+static size_t	ft_words(const char *s, char c)
+{
 	size_t	count;
 	size_t	i;
 
 	count = 0;
-	i = 0;
-	last = c;
+	i = ft_start(s, 0, c);
 	while (s[i])
 	{
-		if (s[i] != c && last == c)
-			count ++;
-		last = s[i];
-		i ++;
+		i = ft_start(s, ft_end(s, i, c), c);
+		count ++;
 	}
 	return (count);
-}
-
-static size_t	locate_next(const char *str, size_t start, char c)
-{
-	char	last;
-
-	last = c;
-	while (str[start])
-	{
-		if (str[start] == c && last != c)
-			return (start);
-		last = str[start];
-		start ++;
-	}
-	return (start);
 }
 
 /*
@@ -52,27 +55,25 @@ static size_t	locate_next(const char *str, size_t start, char c)
 */
 char	**ft_split(char const *s, char c)
 {
+	size_t	i;
 	size_t	j;
-	size_t	l;
-	size_t	last;
-	size_t	next;
+	char	*temp;
 	char	**output;
 
 	j = 0;
-	last = 0;
-	next = 0;
-	l = count_c(s, c);
-	output = (char **)malloc((l + 2) * sizeof(char *));
+	output = (char **)malloc((ft_words(s, c) + 1) * sizeof(char *));
 	if (!output)
 		return (0);
-	while (j < l)
+	i = ft_start(s, 0, c);
+	while (s[i])
 	{
-		next = locate_next(s, last, c);
-		if (next != last)
-			output[j] = ft_substr(s, (unsigned int)last, next - last);
-		last = next + 1;
+		temp = ft_substr(s, (unsigned int)i, ft_end(s, i, c) - i);
+		output[j] = ft_calloc(ft_strlen(temp) + 1, sizeof(char));
+		ft_memmove(output[j], temp, ft_strlen(temp));
+		free(temp);
+		j ++;
+		i = ft_start(s, ft_end(s, i, c), c);
 	}
-	output[j] = ft_substr(s, (unsigned int)last, ft_strlen(s) - last);
-	output[j + 1][0] = '\0';
+	output[j] = 0;
 	return (output);
 }
