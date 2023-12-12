@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:45:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/12 09:51:47 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:03:32 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,4 +18,8 @@
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	if (lst[0]->next != NULL)
+		ft_lstclear(&(lst[0]->next), del);
+	(*del)(&(lst[0]->content));
+	free(lst);
 }
