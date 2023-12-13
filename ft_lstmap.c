@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:53:20 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 10:22:00 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:25:47 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,13 +19,22 @@
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*output;
+	t_list	*new;
+	t_list	*node;
 
-	(del)(0);
-	while (lst->next)
+	if (!lst || !f || !del)
+		return (0);
+	new = 0;
+	while (lst)
 	{
-		output = ft_lstnew((*f)(lst->content));
+		node = ft_lstnew((*f)(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&new, del);
+			return (new);
+		}
+		ft_lstadd_back(&new, node);
 		lst = lst->next;
 	}
-	return (output);
+	return (new);
 }
