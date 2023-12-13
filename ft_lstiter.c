@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:48:32 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 10:22:11 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:07:52 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,12 +16,14 @@
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*next;
+	int	i;
 
-	while (lst->next)
+	if (!lst)
+		return ;
+	i = ft_lstsize(lst);
+	while (i --)
 	{
-		next = lst->next;
-		(*f)(lst);
-		lst = next;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
 }
