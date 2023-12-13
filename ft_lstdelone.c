@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:47:34 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 10:23:01 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:17:14 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,6 +18,8 @@
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	if (!lst)
+		return ;
 	(*del)(lst->content);
-	free(lst->content);
+	free(lst);
 }
