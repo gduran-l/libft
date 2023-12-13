@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:47:56 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/12 13:21:51 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:38:52 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -43,10 +43,9 @@ char	*ft_itoa(int n)
 		neg = -neg;
 		l ++;
 	}
-	output = (char *)malloc((l + 1) * sizeof(char));
+	output = (char *)ft_calloc(l + 1, sizeof(char));
 	if (!output)
 		return (0);
-	ft_bzero(output, l + 1 * sizeof(char));
 	while (l --)
 	{
 		output[l] = 48 + neg * (n % 10);
