@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:55:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 10:20:57 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 11:15:47 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,10 +16,17 @@
 */
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 
-	i = 0;
+	if (!lst)
+		return (0);
+	if (!lst->next)
+		return (1);
+	i = 1;
 	while (lst->next)
+	{
+		lst = lst->next;
 		i ++;
+	}
 	return (i);
 }
