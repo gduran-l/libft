@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 09:55:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/12 14:39:34 by mduran-l         ###   ########.fr       */
+/*   Created: 2023/12/12 09:48:32 by mduran-l          #+#    #+#             */
+/*   Updated: 2023/12/13 10:22:11 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*
-	Cuenta el número de nodos de una lista.
+	Itera la lista ’lst’ y aplica la función ’f’ en el contenido de cada nodo.
 */
-int	ft_lstsize(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	i;
+	t_list	*next;
 
-	i = 0;
 	while (lst->next)
-		i ++;
-	return (i);
+	{
+		next = lst->next;
+		(*f)(lst);
+		lst = next;
+	}
 }

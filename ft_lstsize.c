@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 09:45:06 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 10:00:32 by mduran-l         ###   ########.fr       */
+/*   Created: 2023/12/12 09:55:41 by mduran-l          #+#    #+#             */
+/*   Updated: 2023/12/13 10:20:57 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_bonus.h"
+#include "libft.h"
 
 /*
-	Añade el nodo ’new’ al principio de la lista ’lst’.
+	Cuenta el número de nodos de una lista.
 */
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	int	i;
+
+	i = 0;
+	while (lst->next)
+		i ++;
+	return (i);
 }
