@@ -6,7 +6,7 @@
 #    By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 12:36:32 by mduran-l          #+#    #+#              #
-#    Updated: 2023/12/12 14:23:54 by mduran-l         ###   ########.fr        #
+#    Updated: 2023/12/13 09:54:58 by mduran-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(AR) rcs $@ $^
 
-bonus: $(OBJS_BONUS)
+bonus: $(OBJS_BONUS) $(NAME)
 	@$(AR) rcs $@ $^
 
 fclean: clean
