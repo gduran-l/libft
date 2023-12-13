@@ -6,7 +6,7 @@
 /*   By: mduran-l <mduran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 09:45:41 by mduran-l          #+#    #+#             */
-/*   Updated: 2023/12/13 12:41:44 by mduran-l         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:56:12 by mduran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,11 +18,10 @@
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*tmp;
-
-	if (!lst)
+	if (!lst || !del || !(*lst))
 		return ;
-	tmp = *lst;
-	ft_lstclear(&tmp->next, del);
-	ft_lstdelone(tmp, del);
+	ft_lstclear(&(*lst)->next, del);
+	(*del)((*lst)->content);
+	free(*lst);
+	*lst = 0;
 }
